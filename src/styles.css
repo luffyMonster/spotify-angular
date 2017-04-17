@@ -1,0 +1,11 @@
+main {
+  margin-top: 40px;
+}
+.artist-thumbnail{
+  width: 100px;
+  float: left;
+  margin-right: 20px;
+}
+.search-res{
+  overflow: auto;
+}
