@@ -1,1 +1,38 @@
-<h1>{{artist}} </h1>
+<section *ngIf="artist" class="artist">
+  <header>
+    <div class="img-thumbnail">
+      <img *ngIf="artist.images && artist.images.length > 0" class="thumbnail" src="{{artist.images[0].url}}" alt="{{artist.name}}">
+    </div>
+    <div class="info">
+      <h1 class="item name">{{artist.name}}</h1>
+      <div *ngIf="artist.genres" class="item genre">
+        <strong>Genres: </strong>
+        <span *ngFor="let genre of artist.genres">{{genre}}</span>
+      </div>
+      <div class="follower item">
+        <strong>Followers total:</strong>
+        <span>{{artist.followers.total}}</span>
+      </div>
+      <div class="item">
+        <a [href]="artist.external_urls.spotify">
+          <button type="button" class="btn view-external">View on Spotify</button>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main class="albums">
+    <hr>
+    <h1>Albums</h1>
+    <hr>
+    <div *ngIf="albums" class="album-wrap">
+      <div *ngFor="let album of albums" class="album col-md-5">
+        <div class="img-thumbnail">
+          <img [src]="album.images[0]?album.images[0].url:defaultImage" class="album-img" alt="{{album.name}}">
+        </div>
+        <div class="album-name">
+          <a href="#" [routerLink]="['/album', album.id]"> {{album.name}} </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>

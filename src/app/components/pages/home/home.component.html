@@ -2,25 +2,13 @@
 <p class="lead">Spotify gives you instant access to millions of songs – from old favorites to the latest hits. Just hit play to stream anything you like.</p>
 <form>
   <div class="form-group">
-    <input type="text" class="form-control" name="searchStr" [(ngModel)]="searchStr"  (keyup)="searchMusic()" placeholder="Search music...">
+    <input type="text" class="form-control" name="searchStr" [(ngModel)]="searchStr"  (keyup)="searchMusic()" placeholder="Search artist..." autocomplete="off">
+  </div>
+  <div *ngIf="artists && artists.length" class="result-search">
+    <ul>
+      <li *ngFor="let artist of artists" >
+        <a href="#" [routerLink]="['/artists', artist.id]">{{artist.name}}</a>
+      </li>
+    </ul>
   </div>
 </form>
-<div *ngIf="artists && artists.length">
-  <div *ngFor="let artist of artists">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="search-res well">
-          <img *ngIf="artist.images[0] && artist.images[0].url" src="{{artist.images[0].url}}" class="img-thumbnail artist-thumbnail" alt="">
-          <h4><a href="#" [routerLink]="['/artists', artist.id]">{{artist.name}}</a></h4>
-          <div *ngIf="artist.genres && artist.genres.length > 0" >
-            <strong>Genres: </strong>
-            <span *ngFor="let genre of artist.genres" >{{genre}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div *ngIf="searchStr && artists && artists.length == 0">
-  <p class="text-info">No result found!</p>
-</div>

@@ -18,17 +18,18 @@ var ArtistComponent = (function () {
     }
     ArtistComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.defaultImage = 'app/images/no-image.png';
         this._route.params.subscribe(function (params) {
             var id = params['id'];
             _this._spotifyService.getArtist(id)
-                .subscribe(function (artist) {
-                _this.artist = artist;
-                console.log(artist);
+                .subscribe(function (data) {
+                _this.artist = data;
+                console.log(data);
             });
             _this._spotifyService.getAlbums(id)
-                .subscribe(function (albums) {
-                _this.albums = albums;
-                console.log(albums);
+                .subscribe(function (data) {
+                _this.albums = data.items;
+                console.log(data.items);
             });
         });
     };

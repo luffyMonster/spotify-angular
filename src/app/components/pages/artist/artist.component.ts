@@ -10,22 +10,24 @@ import { SpotifyService } from '../../../services/spotify.service';
 export class ArtistComponent implements OnInit {
   artist: any;
   albums: any;
+  defaultImage: string;
   constructor(
               private _route: ActivatedRoute,
               private _spotifyService: SpotifyService
             ) {}
   ngOnInit() {
+    this.defaultImage = 'app/images/no-image.png';
     this._route.params.subscribe(params => {
       let id = params['id'];
       this._spotifyService.getArtist(id)
-          .subscribe( artist => {
-            this.artist = artist;
-            console.log(artist);
+          .subscribe( data => {
+            this.artist = data;
+            console.log(data);
           });
       this._spotifyService.getAlbums(id)
-          .subscribe( albums => {
-            this.albums = albums;
-            console.log(albums);
+          .subscribe( data => {
+            this.albums = data.items;
+            console.log(data.items);
           });
     });
   };
