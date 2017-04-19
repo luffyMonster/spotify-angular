@@ -3,6 +3,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { ArtistComponent } from './components/pages/artist/artist.component';
+import { AlbumComponent } from './components/pages/album/album.component';
 const appRoutes: Routes = [
   {
     path: '',
@@ -15,6 +16,10 @@ const appRoutes: Routes = [
   {
     path: 'artists/:id',
     component: ArtistComponent
+  },
+  {
+    path: 'album/:id',
+    component: AlbumComponent
   }
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

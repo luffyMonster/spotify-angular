@@ -1,3 +1,7 @@
+video{
+  height: 20px;
+  width: auto;
+}
 main {
   margin-top: 40px;
 }
@@ -11,21 +15,24 @@ form {
   background: #ffffff;
   border-top: 1px solid #333;
 }
-ul {
+.item strong{
+  margin-right: 10px;
+}
+.result-search ul {
   padding-left: 0;
 }
-li{
+.result-search li{
   overflow: hidden;
   list-style-type: none;
   padding-left: 16px;
 }
-li a{
+.result-search li a{
   color: #000;
 }
-li:hover{
+.result-search  li:hover{
   background: #cdcdcd;
 }
-li a:hover{
+.result-search li a:hover{
   color: #000;
   font-weight: 600;
 }
@@ -38,7 +45,7 @@ li a:hover{
 .artist{
   margin-top: 10px;
 }
-.artist header{
+header{
   margin-top: 40px;
   padding-bottom: 25px;
   display: flex;
@@ -46,9 +53,6 @@ li a:hover{
   flex-wrap: wrap;
 }
 
-.artist .info{
-  margin-left: 10px;
-}
 .item{
   margin-bottom: 10px;
 }
@@ -83,4 +87,35 @@ li a:hover{
 .album-img{
   width: 200px;
   /*overflow: hidden;*/
+}
+.album-avatar {
+  max-width: 250px;
+}
+.info {
+  margin: 10px 0 10px 20px;
+}
+.avatar{
+  margin-left: 20px;
+}
+.main-album{
+  margin-top: 0;
+}
+.playlist{
+
+}
+.playlist li{
+  list-style: none;
+}
+.playlist-item{
+  display: flex;
+  border-bottom:  1px solid #596a7b;
+  border-left:  1px solid #596a7b;
+  border-right:  1px solid #596a7b;
+  padding-left: 10px;
+}
+.playlist-item:first-child{
+  border-top:  1px solid #596a7b;
+}
+.playlist-item .track-name{
+  width: 220px;
 }

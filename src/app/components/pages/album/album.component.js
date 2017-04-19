@@ -11,38 +11,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
 var spotify_service_1 = require("../../../services/spotify.service");
-var ArtistComponent = (function () {
-    function ArtistComponent(_route, _spotifyService) {
+var AlbumComponent = (function () {
+    function AlbumComponent(_route, _spotifyService) {
         this._route = _route;
         this._spotifyService = _spotifyService;
     }
-    ArtistComponent.prototype.ngOnInit = function () {
+    AlbumComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.defaultImage = 'app/images/no-image.png';
         this._route.params.subscribe(function (params) {
             var id = params['id'];
-            _this._spotifyService.getArtist(id)
+            _this._spotifyService.getAlbum(id)
                 .subscribe(function (data) {
-                _this.artist = data;
-            });
-            _this._spotifyService.getAlbums(id)
-                .subscribe(function (data) {
-                _this.albums = data.items;
+                _this.album = data;
+                console.log(data);
             });
         });
     };
-    ;
-    return ArtistComponent;
+    return AlbumComponent;
 }());
-ArtistComponent = __decorate([
+AlbumComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'artist',
-        templateUrl: 'artist.component.html',
+        selector: 'album',
+        templateUrl: 'album.component.html',
         providers: [spotify_service_1.SpotifyService]
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         spotify_service_1.SpotifyService])
-], ArtistComponent);
-exports.ArtistComponent = ArtistComponent;
-//# sourceMappingURL=artist.component.js.map
+], AlbumComponent);
+exports.AlbumComponent = AlbumComponent;
+//# sourceMappingURL=album.component.js.map

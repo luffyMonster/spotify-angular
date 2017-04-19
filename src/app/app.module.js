@@ -14,6 +14,7 @@ var navbar_component_1 = require("./components/navbar/navbar.component");
 var home_component_1 = require("./components/pages/home/home.component");
 var about_component_1 = require("./components/pages/about/about.component");
 var artist_component_1 = require("./components/pages/artist/artist.component");
+var album_component_1 = require("./components/pages/album/album.component");
 var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
     function AppModule() {
@@ -23,7 +24,8 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing],
-        declarations: [app_component_1.AppComponent, navbar_component_1.NavbarComponent, home_component_1.HomeComponent, about_component_1.AboutComponent, artist_component_1.ArtistComponent],
+        declarations: [app_component_1.AppComponent, navbar_component_1.NavbarComponent, home_component_1.HomeComponent,
+            about_component_1.AboutComponent, artist_component_1.ArtistComponent, album_component_1.AlbumComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

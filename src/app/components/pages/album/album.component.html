@@ -1,0 +1,48 @@
+<section *ngIf="album" >
+  <header>
+    <div class="img-thumbnail avatar">
+      <img *ngIf="album.images && album.images.length > 0" [src]="album.images[0].url" class="thumbnail album-img" alt="{{album.name}}">
+    </div>
+
+    <div class="info">
+      <h2>{{album.name}}</h2>
+      <div class="item">
+        <strong>Artist: </strong>
+        <span>
+          <a href="#" [routerLink]="['/artists', album.artists[0].id]">
+            {{album.artists[0].name}}
+          </a>
+        </span>
+      </div>
+      <div class="item">
+        <strong>Label: </strong>
+        <span>{{album.label}}</span>
+      </div>
+      <div class="item">
+        <strong>Release date: </strong>
+        <span>{{album.release_date}}</span>
+      </div>
+      <div *ngIf="album.copyrights && album.copyrights.length > 0" class="item">
+        <strong>Copyrights: </strong>
+        <span *ngFor="let cp of album.copyrights; let last = last;" > {{cp.type + cp.text}}<i *ngIf="!last">, </i></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-album">
+    <h3>Tracks</h3>
+    <hr>
+    <div class="tracks">
+      <ul class="playlist" *ngIf="album.tracks" >
+        <li *ngFor="let track of album.tracks.items" class="playlist-item">
+          <span class="track-name">{{track.name}}</span>
+          <div class="item">
+            <a class="col-md-2" *ngIf="track.preview_url" [href]="track.preview_url" target="_blank">
+              Preview
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+</section>
